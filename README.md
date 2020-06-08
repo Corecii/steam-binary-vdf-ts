@@ -131,3 +131,29 @@ The default values for a shortcut definition are:
   tags: {}
 }
 ```
+
+# Binary VDF Format
+
+The binary vdf format is built around a few structures:
+* Null-terminated strings (here on called `String`)
+* 32-bit little-endian integers (here on called `Integer`)
+* Map (here on called `Map`)
+* 1-byte object type (here on called `MapItemType`)
+  * `0x00` represents a Map
+  * `0x01` represents a String
+  * `0x02` represents a Number
+  * `0x08` represents the end of a map
+
+`Map` is structured as reptitions of any of the following:
+* `MapItemType(0x01)` `String(name)` `String(value)`
+* `MapItemType(0x02)` `String(name)` `Integer(value)`
+* `MapItemType(0x00)` `String(name)` `Map(value)`
+* `MapItemType(0x08)`
+
+When a type of `0x08` is encountered, map reading stops.
+
+The root of a binary vdf file is a `Map`.
+
+`steam-binary-vdf` reads `Integers` as unsigned integers. I haven't seen enough user-editable integers in vdf files to test if this is a correct representation of the data.
+
+`steam-binary-vdf` reads `Strings` as utf-8. The vdf format likely accepts any sequence of bytes for a string as long as it doesn't contain a null character `\0`.
