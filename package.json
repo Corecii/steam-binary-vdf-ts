@@ -1,0 +1,44 @@
+{
+  "name": "steam-binary-vdf",
+  "version": "0.1.0",
+  "description": "A module to read and write the binary vdf file format used by steam. For example: shortcuts.vdf. This module also provides Steam shortcut url calculation.",
+  "keywords": [
+    "steam", "vdf"
+  ],
+  "homepage": "https://github.com/Corecii/steam-binary-vdf-ts",
+  "bugs": "https://github.com/Corecii/steam-binary-vdf-ts/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Corecii/steam-binary-vdf-ts.git"
+  },
+  "main": "./out/BinaryVdf.js",
+  "types": "./out/BinaryVdf.d.ts",
+  "files": [
+    "out/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prepublishOnly": "tsc"
+  },
+  "author": "corecii@corecii.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.0.5",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@types/buffer-reader": "^0.1.0",
+    "@types/node-int64": "^0.4.29",
+    "buffer-reader": "^0.1.0",
+    "hex2dec": "^1.1.2",
+    "node-int64": "^0.4.0",
+    "polycrc": "^0.1.0"
+  }
+}
